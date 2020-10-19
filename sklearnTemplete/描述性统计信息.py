@@ -298,6 +298,10 @@ np.var(np.array(X))
 
 
 
+# 获取当前dataframe的形状
+nb_rows = my_df.shape[0]
+nb_cols = my_df.shape[1]
+
 
 # ### 以频率降序排列
 
@@ -305,6 +309,10 @@ np.var(np.array(X))
 
 
 
+
+import pandas as pd
+# my_df 是pandas dataframe
+my_df['col_0'].value_counts()
 
 
 # ### 以列值排序
@@ -314,6 +322,10 @@ np.var(np.array(X))
 
 
 
+import pandas as pd
+# my_df 是pandas dataframe
+my_df['col_0'].value_counts().sort_index()
+
 
 # ### 所有列（列的数据类型为数值型）
 
@@ -321,6 +333,8 @@ np.var(np.array(X))
 
 
 
+
+my_df.describe()
 
 
 # ### 所有列的单一属性（如最大值，列的数据类型为数值型）
@@ -330,6 +344,8 @@ np.var(np.array(X))
 
 
 
+my_df.max()
+
 
 # ### 平均数
 
@@ -337,6 +353,8 @@ np.var(np.array(X))
 
 
 
+
+mean(object)
 
 
 # ### 获得类别字段的频数
@@ -346,6 +364,8 @@ np.var(np.array(X))
 
 
 
+my_df['category'].value_counts()
+
 
 # ### 查看缺失情况
 
@@ -354,6 +374,9 @@ np.var(np.array(X))
 
 
 
+for col in my_df.columns:
+    print("column {} 包含 {} 个缺失值".format(col, my_df[col].isnull().sum()))
+
 
 # ### 查看字段包含unique值的程度
 
@@ -361,6 +384,9 @@ np.var(np.array(X))
 
 
 
+
+for col in my_df.columns:
+    print("column {} 中共有 {} 个unique value".format(col, my_df[col].nunique()))
 
 
 # In[ ]:
